@@ -1,0 +1,48 @@
+services:
+  # ------------------------------------
+  # Database
+  # ------------------------------------
+  postgres:
+    image: postgres:18-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # ------------------------------------
+  # App
+  # ------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: ${DB_ENGINE}://${DB_USER}:${DB_PASSWORD}@{DB_HOST}:${DB_PORT}/${DB_NAME}
+    env_file:
+      - .env.production
+    command: >
+      sh -c "
+        /app/node_modules/.bin/drizzle-kit migrate --config /app/drizzle.config.ts || true
+        bun run start
+      "
+
+# ------------------------------------
+# Volúmenes para persistencia
+# ------------------------------------
+volumes:
+  postgres_data:
