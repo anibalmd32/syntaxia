@@ -1,0 +1,91 @@
+{
+  "common": {
+    "administration": "Administration",
+    "settings": "Settings",
+    "roles": "Roles"
+  },
+  "pages": {
+    "auth": {
+      "login": {
+        "tabTitle": "Login",
+        "title": "Login",
+        "notAccount": "Don't have an account yet?",
+        "registerLink": "Register"
+      },
+      "register": {
+        "tabTitle": "Register",
+        "title": "Create Account",
+        "alreadyAccount": "Do you have an account?",
+        "loginLink": "Log in"
+      }
+    },
+    "home": {
+      "tabTitle": "Home"
+    }
+  },
+  "inputs": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email"
+    },
+    "name": {
+      "label": "Full Name",
+      "placeholder": "Enter your name"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter your password"
+    },
+    "confirmPassword": {
+      "label": "Confirm Password",
+      "placeholder": "Confirm your password"
+    }
+  },
+  "buttons": {
+    "submit": {
+      "label": "Submit"
+    },
+    "login": {
+      "label": "Login"
+    },
+    "register": {
+      "label": "Register"
+    },
+    "logout": {
+      "label": "Log out"
+    },
+    "addRole": {
+      "label": "Add role"
+    },
+    "addUser": {
+      "label": "Add user"
+    }
+  },
+  "validations": {
+    "generic": {
+      "required_field": "This field is required",
+      "invalid_format": "Invalid value",
+      "too_short": "The value is too short",
+      "too_long": "The value is too long",
+      "must_string": "The value must be a string",
+      "must_number": "The value must be a number",
+      "required": "Required"
+    },
+    "email": {
+      "invalid": "Invalid email address"
+    },
+    "password": {
+      "min_length": "The password must be at least 4 characters long",
+      "min_lowercase": "The password must contain at least 2 lowercase letter(s)",
+      "min_uppercase": "The password must contain at least 1 uppercase letter(s)",
+      "min_numbers": "The password must contain at least 2 number(s)",
+      "min_symbols": "The password must contain at least 1 symbol(s)",
+      "max_repeating": "The password must not contain more than 3 repeating character(s)",
+      "do_not_match": "Passwords do not match"
+    },
+    "avatar": {
+      "max_size": "The file size must not exceed 10 MB",
+      "invalid_mime_type": "Invalid file type. Allowed types: JPEG, PNG"
+    }
+  }
+}

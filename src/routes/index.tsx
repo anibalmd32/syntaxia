@@ -1,13 +1,27 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   component: App,
+  beforeLoad: ({ context, location }) => {
+    if (!context.auth?.session) {
+      throw redirect({
+        to: "/auth/signin",
+        search: {
+          redirect: location.href,
+        },
+      });
+    } else {
+      throw redirect({
+        to: "/app/home",
+      });
+    }
+  },
 });
 
 function App() {
   return (
     <div>
-      <h1>Toonify</h1>
+      <h1>Toonify App</h1>
     </div>
   );
 }
