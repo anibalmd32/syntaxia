@@ -53,7 +53,11 @@ export const SignUpForm = () => {
       >
         <form.AppField
           children={(field) => (
-            <field.Input label={t("inputs.name.label")} type="text" />
+            <field.Input
+              label={t("inputs.name.label")}
+              placeholder="Ej: Juan Pérez"
+              type="text"
+            />
           )}
           name="name"
           validators={{
@@ -62,7 +66,11 @@ export const SignUpForm = () => {
         />
         <form.AppField
           children={(field) => (
-            <field.Input label={t("inputs.email.label")} type="email" />
+            <field.Input
+              label={t("inputs.email.label")}
+              placeholder="nombre@ejemplo.com"
+              type="email"
+            />
           )}
           name="email"
           validators={{
@@ -71,7 +79,11 @@ export const SignUpForm = () => {
         />
         <form.AppField
           children={(field) => (
-            <field.Input label={t("inputs.password.label")} type="password" />
+            <field.Input
+              label={t("inputs.password.label")}
+              placeholder="••••••••"
+              type="password"
+            />
           )}
           name="password"
           validators={{
@@ -82,6 +94,7 @@ export const SignUpForm = () => {
           children={(field) => (
             <field.Input
               label={t("inputs.confirmPassword.label")}
+              placeholder="••••••••"
               type="password"
             />
           )}

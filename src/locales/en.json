@@ -10,13 +10,27 @@
         "tabTitle": "Login",
         "title": "Login",
         "notAccount": "Don't have an account yet?",
-        "registerLink": "Register"
+        "registerLink": "Register",
+        "welcomeBack": "Welcome back"
       },
       "register": {
         "tabTitle": "Register",
         "title": "Create Account",
         "alreadyAccount": "Do you have an account?",
-        "loginLink": "Log in"
+        "loginLink": "Log in",
+        "createAccountFree": "Create your free account"
+      },
+      "success": {
+        "tabTitle": "Success registration",
+        "checkEmail": "Check your email!",
+        "hello": "Hello",
+        "almostDone": ", almost done.",
+        "linkSentTo": "Link sent to",
+        "confirmationSent": "We have sent a confirmation link. If you don't see it, check your folder",
+        "spam": "Spam",
+        "backToLogin": "Back to login",
+        "didNotReceive": "Did not receive the email?",
+        "resend": "Resend"
       }
     },
     "home": {

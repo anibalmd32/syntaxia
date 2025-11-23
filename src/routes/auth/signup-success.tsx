@@ -3,6 +3,8 @@ import { ArrowLeft, CheckCircle2, Mail } from "lucide-react";
 import * as v from "valibot";
 import { EmailSchema } from "@/definitions/validationSchemas/EmailSchema";
 import { NameSchema } from "@/definitions/validationSchemas/NameSchema";
+import i18n from "@/lib/i18n";
+import { useTranslation } from "react-i18next";
 
 const signUpSearchSchema = v.object({
   userName: NameSchema,
@@ -12,59 +14,70 @@ const signUpSearchSchema = v.object({
 export const Route = createFileRoute("/auth/signup-success")({
   component: RouteComponent,
   validateSearch: signUpSearchSchema,
+  head: () => ({
+    meta: [
+      {
+        title: `${i18n.t("pages.auth.success.tabTitle")} | Toonify`,
+      },
+    ],
+  }),
 });
 
+
+
 function RouteComponent() {
+  const { t } = useTranslation();
   const { userEmail, userName } = Route.useSearch();
 
   return (
-    <div className="h-screen w-full px-4 z-10 flex flex-col gap-6 justify-center items-center">
-      <div className="card w-full max-w-md bg-base-100 shadow-xl border border-base-200/50 backdrop-blur-sm z-10">
-        <div className="card-body items-center text-center py-10 px-6">
-          <div className="relative mb-6">
-            <div className="w-20 h-20 bg-base-200 rounded-full flex items-center justify-center">
-              <Mail className="w-10 h-10 text-[#5A4FCF]" />
+    <>
+      <div className="card w-full max-w-md bg-base-100/80 shadow-2xl border border-base-200 backdrop-blur-xl z-10">
+        <div className="card-body items-center text-center py-12 px-8">
+          <div className="relative mb-8 group">
+            <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+            <div className="w-24 h-24 bg-gradient-to-br from-base-100 to-base-200 rounded-full flex items-center justify-center relative shadow-lg border border-base-200">
+              <Mail className="w-12 h-12 text-[#5A4FCF] drop-shadow-md" />
             </div>
-            <div className="absolute bottom-0 right-0 bg-success text-white rounded-full p-1 border-4 border-base-100 shadow-sm">
-              <CheckCircle2 className="w-5 h-5" />
+            <div className="absolute -bottom-2 -right-2 bg-success text-white rounded-full p-1.5 border-4 border-base-100 shadow-lg animate-bounce">
+              <CheckCircle2 className="w-6 h-6" />
             </div>
           </div>
 
-          <h1 className="text-2xl font-extrabold text-base-content mb-2">
-            ¡Revisa tu correo!
+          <h1 className="text-3xl font-black text-base-content mb-3 tracking-tight">
+            {t("pages.auth.success.checkEmail")}
           </h1>
 
-          <p className="text-base-content/70 text-lg">
-            Hola{" "}
-            <span className="font-bold text-transparent bg-clip-text bg-linear-to-r from-[#00C6FF] to-[#5A4FCF]">
+          <p className="text-base-content/70 text-lg mb-8">
+            {t("pages.auth.success.hello")}{" "}
+            <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5A4FCF]">
               {userName}
             </span>
-            , ya casi terminamos.
+            {t("pages.auth.success.almostDone")}
           </p>
 
-          <div className="mt-6 mb-4 w-full">
-            <div className="bg-base-200/60 border border-base-300 rounded-xl p-4 flex flex-col items-center gap-1 group transition-colors hover:border-[#00C6FF]/30">
+          <div className="w-full mb-8">
+            <div className="bg-base-200/50 border border-base-300 rounded-2xl p-5 flex flex-col items-center gap-2 group transition-all hover:bg-base-200 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
               <span className="text-[10px] uppercase tracking-widest text-base-content/40 font-bold">
-                Enlace enviado a
+                {t("pages.auth.success.linkSentTo")}
               </span>
-              <span className="text-base font-semibold text-base-content font-mono break-all">
+              <span className="text-lg font-bold text-base-content font-mono break-all">
                 {userEmail}
               </span>
             </div>
           </div>
 
-          <p className="text-sm text-base-content/50 mb-8 leading-relaxed">
-            Hemos enviado un enlace de confirmación. Si no lo ves, revisa tu
-            carpeta de <strong>Spam</strong>.
+          <p className="text-sm text-base-content/50 mb-8 leading-relaxed max-w-xs mx-auto">
+            {t("pages.auth.success.confirmationSent")}{" "}
+            <strong>{t("pages.auth.success.spam")}</strong>.
           </p>
 
           <div className="w-full border-t border-base-200 pt-6">
             <Link
-              className="btn btn-ghost btn-sm gap-2 text-base-content/60 hover:text-primary hover:bg-transparent group"
+              className="btn btn-ghost btn-sm gap-2 text-base-content/60 hover:text-primary hover:bg-primary/5 group w-full h-10 rounded-xl"
               to="/auth/signin"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              Volver al inicio de sesión
+              {t("pages.auth.success.backToLogin")}
             </Link>
           </div>
         </div>
@@ -72,15 +85,15 @@ function RouteComponent() {
 
       <div className="mt-8 text-center z-10 opacity-60 hover:opacity-100 transition-opacity">
         <p className="text-xs text-base-content/40">
-          ¿No recibiste el correo?{" "}
+          {t("pages.auth.success.didNotReceive")}{" "}
           <button
-            className="text-primary hover:underline font-medium bg-transparent border-none cursor-pointer p-0"
+            className="text-primary hover:text-primary-focus font-bold bg-transparent border-none cursor-pointer p-0 transition-colors"
             type="button"
           >
-            Reenviar
+            {t("pages.auth.success.resend")}
           </button>
         </p>
       </div>
-    </div>
+    </>
   );
 }

@@ -10,6 +10,7 @@ import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import type { Session, User } from "better-auth/types";
 import { ProgressSubscriber } from "@/components/ProgressSubscriber";
 import type { TRPCRouter } from "@/integrations/trpc/router";
+import i18n from "@/lib/i18n";
 import { fetchUserSession } from "@/utils/auth-fn";
 import appCss from "../styles.css?url";
 
@@ -54,20 +55,28 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const currentLang = i18n.language;
+
   return (
-    <html data-theme="toonify" lang="es">
+    <html data-theme="toonify" lang={currentLang}>
       <head>
         <HeadContent />
       </head>
       <body>
-        <main className="h-screen w-full bg-base-200 relative overflow-hidden selection:bg-primary selection:text-primary-content">
-          <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#00C6FF]/20 rounded-full blur-3xl pointer-events-none mix-blend-multiply" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[#5A4FCF]/20 rounded-full blur-3xl pointer-events-none mix-blend-multiply" />
-          <ProgressProvider color="#18a5f2">
-            <ProgressSubscriber>
-              <ClientOnly>{children}</ClientOnly>
-            </ProgressSubscriber>
-          </ProgressProvider>
+        <main className="min-h-screen w-full bg-base-200 relative selection:bg-primary selection:text-primary-content font-sans text-base-content antialiased">
+          {/* Global Background Decorations */}
+          <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00C6FF]/10 rounded-full blur-[120px] mix-blend-multiply animate-pulse" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#5A4FCF]/10 rounded-full blur-[120px] mix-blend-multiply animate-pulse delay-1000" />
+          </div>
+
+          <div className="relative z-10">
+            <ProgressProvider color="#18a5f2">
+              <ProgressSubscriber>
+                <ClientOnly>{children}</ClientOnly>
+              </ProgressSubscriber>
+            </ProgressProvider>
+          </div>
         </main>
         <Scripts />
       </body>

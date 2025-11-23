@@ -22,29 +22,39 @@ function RouteComponent() {
   const { t } = useTranslation();
 
   return (
-    <div className="h-screen w-full px-4 z-10 flex flex-col gap-6 justify-center items-center">
-      <div className="text-center space-y-2">
-        <div className="flex justify-center mb-6">
-          <ToonifyLogo className="h-16" />
+    <>
+      <div className="text-center mb-8 space-y-2">
+        <div className="flex justify-center mb-6 transform hover:scale-105 transition-transform duration-300">
+          <ToonifyLogo className="h-16 drop-shadow-lg" />
         </div>
-        <h1 className="text-3xl font-extrabold tracking-tight text-base-content">
+        <h1 className="text-4xl font-black tracking-tight text-base-content">
           {t("pages.auth.login.title")}
         </h1>
+        <p className="text-base-content/60 font-medium">
+          {t("pages.auth.login.welcomeBack")}
+        </p>
       </div>
 
-      <div className="card bg-base-100 shadow-xl border border-base-200/50 backdrop-blur-sm">
-        <div className="card-body pb-8 pt-8">
+      <div className="card bg-base-100/80 shadow-2xl border border-base-200 backdrop-blur-xl">
+        <div className="card-body p-8">
           <SigninForm />
 
-          <div className="divider divider-accent text-xs text-base-content/30 mt-6 mb-6">
-            O
+          <div className="relative my-8">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-base-300"></div>
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-base-100 px-2 text-base-content/40 font-bold tracking-widest">
+                O
+              </span>
+            </div>
           </div>
 
           <div className="text-center text-sm">
-            <p className="text-base-content/70">
+            <p className="text-base-content/70 font-medium">
               {t("pages.auth.login.notAccount")}{" "}
               <Link
-                className="link link-primary font-semibold hover:text-primary-focus transition-colors no-underline hover:underline"
+                className="link link-primary font-bold hover:text-primary-focus transition-all decoration-2 hover:decoration-4 underline-offset-4"
                 to="/auth/signup"
               >
                 {t("pages.auth.login.registerLink")}
@@ -53,6 +63,6 @@ function RouteComponent() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

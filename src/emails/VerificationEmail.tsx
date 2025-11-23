@@ -8,15 +8,15 @@ import {
   Html,
   Link,
   Preview,
-  render,
   Section,
   Tailwind,
   Text,
 } from "@react-email/components";
+import { render } from "@react-email/render";
 
 interface VerificationEmailProps {
   url: string;
-  userEmail?: string; // Opcional, para personalizar
+  userEmail?: string;
 }
 
 export const VerificationEmail = ({
@@ -37,70 +37,82 @@ export const VerificationEmail = ({
                 brand: {
                   start: "#00C6FF",
                   end: "#5A4FCF",
-                  dark: "#2D3748",
+                  dark: "#1a1a1a",
+                  light: "#f5f5f5",
                 },
               },
             },
           },
         }}
       >
-        <Body className="bg-gray-50 font-sans text-brand-dark my-auto mx-auto">
-          <Container className="border border-gray-200 my-10 rounded-lg mx-auto p-8 max-w-[480px] bg-white shadow-sm">
+        <Body className="bg-white font-sans text-brand-dark my-auto mx-auto px-2">
+          <Container className="border border-gray-100 my-10 rounded-3xl mx-auto p-8 max-w-[480px] shadow-2xl relative overflow-hidden">
+            {/* Background Decoration - using Section instead of absolute div for better support */}
+            <Section
+              style={{
+                background: "linear-gradient(90deg, #00C6FF 0%, #5A4FCF 100%)",
+                height: "8px",
+                width: "100%",
+              }}
+            />
+
             {/* LOGO HEADER */}
-            <Section className="mt-4 mb-8 text-center">
-              {/*
-                  Nota: Para producción, lo ideal es hostear tu SVG/PNG y usar <Img />.
-                  Aquí simulo el logo con texto y estilos para que funcione sin assets externos.
-               */}
-              <Text className="text-3xl font-bold tracking-tighter m-0">
-                toon<span className="text-[#5A4FCF]">ify</span>
+            <Section className="mt-8 mb-8 text-center">
+              <Text className="text-4xl font-black tracking-tighter m-0 text-[#5A4FCF]">
+                toonify
               </Text>
             </Section>
 
             {/* CONTENIDO PRINCIPAL */}
-            <Heading className="text-2xl font-bold text-center p-0 my-4 mx-0 text-gray-800">
+            <Heading className="text-2xl font-bold text-center p-0 my-4 mx-0 text-gray-900">
               Verifica tu correo electrónico
             </Heading>
 
             <Text className="text-base leading-relaxed text-gray-600 text-center mb-8">
-              ¡Hola <strong>{userEmail}</strong>! Estamos emocionados de que te
-              unas a Toonify. Para asegurar la seguridad de tu cuenta, por favor
-              verifica tu dirección haciendo clic abajo.
+              ¡Hola <strong>{userEmail}</strong>! <br />
+              Estamos emocionados de que te unas a Toonify. Para asegurar la
+              seguridad de tu cuenta, por favor verifica tu dirección haciendo
+              clic abajo.
             </Text>
 
             {/* BOTÓN CTA CON GRADIENTE */}
             <Section className="text-center my-8">
               <Button
-                className="bg-[#5A4FCF] rounded-full text-white text-base font-bold no-underline text-center py-3 px-8 block w-full shadow-md"
+                className="rounded-xl text-white text-base font-bold no-underline text-center py-4 px-10 block shadow-xl"
                 href={url}
                 style={{
-                  // Fallback para clientes que no soportan gradientes
-                  backgroundColor: "#5A4FCF",
-                  // Gradiente CSS inline (algunos clientes lo soportan, otros usan el bg color)
-                  backgroundImage:
-                    "linear-gradient(to right, #00C6FF, #5A4FCF)",
+                  background:
+                    "linear-gradient(135deg, #00C6FF 0%, #5A4FCF 100%)",
+                  boxShadow: "0 10px 20px -10px rgba(90, 79, 207, 0.5)",
+                  color: "#ffffff",
                 }}
               >
                 Verificar mi cuenta
               </Button>
             </Section>
 
-            <Text className="text-sm text-gray-500 text-center mt-8 mb-4">
+            <Text className="text-sm text-gray-400 text-center mt-8 mb-4">
               O copia y pega este enlace en tu navegador:
               <br />
-              <Link className="text-[#00C6FF] underline break-all" href={url}>
+              <Link
+                className="text-[#5A4FCF] underline break-all font-medium"
+                href={url}
+              >
                 {url}
               </Link>
             </Text>
 
-            <Hr className="border-gray-200 my-6" />
+            <Hr className="border-gray-100 my-8" />
 
             {/* FOOTER */}
-            <Text className="text-xs text-gray-400 text-center">
-              Si no solicitaste esta verificación, puedes ignorar este correo
-              con seguridad.
-              <br />© {new Date().getFullYear()} Toonify Inc. Todos los derechos
-              reservados.
+            <Text className="text-xs text-gray-400 text-center leading-relaxed">
+              Si no solicitaste esta verificación, puedes ignorar este correo con
+              seguridad.
+              <br />
+              <span className="opacity-50">
+                © {new Date().getFullYear()} Toonify Inc. Todos los derechos
+                reservados.
+              </span>
             </Text>
           </Container>
         </Body>

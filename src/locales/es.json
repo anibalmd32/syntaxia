@@ -10,13 +10,27 @@
         "tabTitle": "Entrar",
         "title": "Iniciar sesión",
         "notAccount": "No tienes cuenta aun?",
-        "registerLink": "Registrate"
+        "registerLink": "Registrate",
+        "welcomeBack": "Bienvenido de nuevo"
       },
       "register": {
         "tabTitle": "Registrarse",
         "title": "Crear cuenta",
         "alreadyAccount": "Ya tienes una cuenta?",
-        "loginLink": "Inicia sesion"
+        "loginLink": "Inicia sesion",
+        "createAccountFree": "Crea tu cuenta gratis"
+      },
+      "success": {
+        "tabTitle": "Registro exitoso",
+        "checkEmail": "¡Revisa tu correo!",
+        "hello": "Hola",
+        "almostDone": ", ya casi terminamos.",
+        "linkSentTo": "Enlace enviado a",
+        "confirmationSent": "Hemos enviado un enlace de confirmación. Si no lo ves, revisa tu carpeta de",
+        "spam": "Spam",
+        "backToLogin": "Volver al inicio de sesión",
+        "didNotReceive": "¿No recibiste el correo?",
+        "resend": "Reenviar"
       }
     },
     "home": {

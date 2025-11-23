@@ -15,9 +15,11 @@ export const Route = createFileRoute("/app")({
 
 function RouteComponent() {
   return (
-    <div>
-      <LangSelect />
-      <SingOutBnt />
+    <div className="min-h-screen w-full relative">
+      <div className="absolute top-4 right-4 z-50 flex gap-2">
+        <LangSelect />
+        <SingOutBnt />
+      </div>
       <Outlet />
     </div>
   );

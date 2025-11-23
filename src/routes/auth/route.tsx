@@ -14,15 +14,20 @@ export const Route = createFileRoute("/auth")({
 
 function RouteComponent() {
   return (
-    <div>
-      <LangSelect />
-      <Outlet />
+    <div className="min-h-screen w-full flex items-center justify-center p-4 relative">
+      <div className="absolute top-4 right-4 z-50">
+        <LangSelect />
+      </div>
 
-      <div className="text-center">
+      <div className="w-full max-w-md z-10">
+        <Outlet />
+      </div>
+
+      {/* <div className="absolute bottom-4 text-center w-full z-10">
         <p className="text-xs text-base-content/40">
           © {new Date().getFullYear()} Toonify Inc.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
