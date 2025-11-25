@@ -7,7 +7,7 @@ import type { TRPCRouter } from "@/integrations/trpc/router";
 
 function getUrl() {
   const base = (() => {
-    if (typeof window !== "undefined") return "";
+    if (typeof globalThis.window !== "undefined") return "";
     return `http://localhost:${process.env.PORT ?? 3000}`;
   })();
   return `${base}/api/trpc`;
@@ -47,10 +47,10 @@ export function getContext() {
 export function Provider({
   children,
   queryClient,
-}: {
+}: Readonly<{
   children: React.ReactNode;
   queryClient: QueryClient;
-}) {
+}>) {
   return (
     <TRPCProvider queryClient={queryClient} trpcClient={trpcClient}>
       {children}

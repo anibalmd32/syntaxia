@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import * as v from "valibot";
 import { EmailSchema } from "@/definitions/validationSchemas/EmailSchema";
 import { NameSchema } from "@/definitions/validationSchemas/NameSchema";
-import i18n from "@/lib/i18n";
+import { i18n } from "@/lib/i18n";
 
 const signUpSearchSchema = v.object({
   userName: NameSchema,
@@ -33,7 +33,7 @@ function RouteComponent() {
         <div className="card-body items-center text-center py-12 px-8">
           <div className="relative mb-8 group">
             <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-            <div className="w-24 h-24 bg-gradient-to-br from-base-100 to-base-200 rounded-full flex items-center justify-center relative shadow-lg border border-base-200">
+            <div className="w-24 h-24 bg-linear-to-br from-base-100 to-base-200 rounded-full flex items-center justify-center relative shadow-lg border border-base-200">
               <Mail className="w-12 h-12 text-[#5A4FCF] drop-shadow-md" />
             </div>
             <div className="absolute -bottom-2 -right-2 bg-success text-white rounded-full p-1.5 border-4 border-base-100 shadow-lg animate-bounce">
@@ -47,7 +47,7 @@ function RouteComponent() {
 
           <p className="text-base-content/70 text-lg mb-8">
             {t("pages.auth.success.hello")}{" "}
-            <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00C6FF] to-[#5A4FCF]">
+            <span className="font-bold text-transparent bg-clip-text bg-linear-to-r from-[#00C6FF] to-[#5A4FCF]">
               {userName}
             </span>
             {t("pages.auth.success.almostDone")}

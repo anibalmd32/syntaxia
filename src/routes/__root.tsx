@@ -11,7 +11,7 @@ import type { Session, User } from "better-auth/types";
 import { ProgressSubscriber } from "@/components/ProgressSubscriber";
 import { Toast } from "@/components/Toast";
 import type { TRPCRouter } from "@/integrations/trpc/router";
-import i18n, { setSSRLanguage } from "@/lib/i18n";
+import { i18n, setSSRLanguage } from "@/lib/i18n";
 import { fetchUserSession } from "@/utils/auth-fn";
 import appCss from "../styles.css?url";
 
@@ -56,7 +56,11 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   },
 });
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootDocument({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const currentLang = i18n.language;
 
   return (

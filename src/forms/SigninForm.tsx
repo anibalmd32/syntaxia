@@ -56,32 +56,34 @@ export const SigninForm = () => {
       >
         <div>
           <form.AppField
-            children={(field) => (
+            name="email"
+            validators={{
+              onSubmit: RequiredSchema,
+            }}
+          >
+            {(field) => (
               <field.Input
                 label={t("inputs.email.label")}
                 placeholder="name@example.com"
                 type="email"
               />
             )}
-            name="email"
+          </form.AppField>
+
+          <form.AppField
+            name="password"
             validators={{
               onSubmit: RequiredSchema,
             }}
-          />
-
-          <form.AppField
-            children={(field) => (
+          >
+            {(field) => (
               <field.Input
                 label={t("inputs.password.label")}
                 placeholder="••••••••"
                 type="password"
               />
             )}
-            name="password"
-            validators={{
-              onSubmit: RequiredSchema,
-            }}
-          />
+          </form.AppField>
         </div>
 
         <div className="mt-8">

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { ToonifyLogo } from "@/components/ToonifyLogo";
 import { SigninForm } from "@/forms/SigninForm";
-import i18n from "@/lib/i18n";
+import { i18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/auth/signin")({
   component: RouteComponent,

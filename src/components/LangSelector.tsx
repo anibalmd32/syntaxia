@@ -28,17 +28,19 @@ export const LangSelect = () => {
         <SiGoogletranslate size={20} />
       </button>
       <ul
-        className="dropdown-content menu bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm space-y-2"
+        className="dropdown-content menu bg-base-100 rounded-box z-1 w-32 shadow-sm"
         tabIndex={-1}
       >
         {langList.map((lang) => (
-          <li
-            className={`hover:bg-primary cursor-pointer px-2 rounded-sm ${i18n.language === lang.code ? "bg-primary font-bold" : ""}`}
-            key={lang.code}
-            onClick={() => changeLanguage(lang.code)}
-            onKeyDown={() => {}}
-          >
-            {lang.label}
+          <li key={lang.code}>
+            <button
+              className={`btn btn-sm ${i18n.language === lang.code ? "btn-primary font-bold" : ""}`}
+              onClick={() => changeLanguage(lang.code)}
+              onKeyDown={() => {}}
+              type="button"
+            >
+              {lang.label}
+            </button>
           </li>
         ))}
       </ul>

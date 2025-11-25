@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import i18n from "@/lib/i18n";
+import { i18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/app/home")({
   component: RouteComponent,

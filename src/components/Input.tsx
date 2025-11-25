@@ -110,10 +110,10 @@ export const Input = ({
       <div className="min-h-6 pt-1.5 ml-1">
         {showError && (
           <div className="flex flex-col animate-fade-in-down">
-            {errors.map((error, idx) => (
+            {errors.map((error) => (
               <span
                 className="text-xs text-error font-medium flex items-center gap-1.5"
-                key={idx}
+                key={generateUniqueKey()}
                 role="alert"
               >
                 <ErrorSvg />

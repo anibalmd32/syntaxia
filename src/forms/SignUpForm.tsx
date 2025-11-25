@@ -52,52 +52,48 @@ export const SignUpForm = () => {
         }}
       >
         <form.AppField
-          children={(field) => (
+          name="name"
+          validators={{
+            onSubmit: NameSchema,
+          }}
+        >
+          {(field) => (
             <field.Input
               label={t("inputs.name.label")}
               placeholder="Ej: Juan Pérez"
               type="text"
             />
           )}
-          name="name"
-          validators={{
-            onSubmit: NameSchema,
-          }}
-        />
+        </form.AppField>
         <form.AppField
-          children={(field) => (
+          name="email"
+          validators={{
+            onSubmit: EmailSchema,
+          }}
+        >
+          {(field) => (
             <field.Input
               label={t("inputs.email.label")}
               placeholder="nombre@ejemplo.com"
               type="email"
             />
           )}
-          name="email"
-          validators={{
-            onSubmit: EmailSchema,
-          }}
-        />
+        </form.AppField>
         <form.AppField
-          children={(field) => (
+          name="password"
+          validators={{
+            onSubmit: PasswordSchema,
+          }}
+        >
+          {(field) => (
             <field.Input
               label={t("inputs.password.label")}
               placeholder="••••••••"
               type="password"
             />
           )}
-          name="password"
-          validators={{
-            onSubmit: PasswordSchema,
-          }}
-        />
+        </form.AppField>
         <form.AppField
-          children={(field) => (
-            <field.Input
-              label={t("inputs.confirmPassword.label")}
-              placeholder="••••••••"
-              type="password"
-            />
-          )}
           name="confirmPassword"
           validators={{
             onSubmit: ({ value, fieldApi }) => {
@@ -111,7 +107,15 @@ export const SignUpForm = () => {
               return undefined;
             },
           }}
-        />
+        >
+          {(field) => (
+            <field.Input
+              label={t("inputs.confirmPassword.label")}
+              placeholder="••••••••"
+              type="password"
+            />
+          )}
+        </form.AppField>
 
         <div className="mt-8">
           <form.AppForm>
