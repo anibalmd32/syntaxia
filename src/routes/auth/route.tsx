@@ -15,7 +15,7 @@ export const Route = createFileRoute("/auth")({
 function RouteComponent() {
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-4 relative">
-      <div className="absolute top-4 right-4 z-50">
+      <div className="absolute top-4 left-4 z-50">
         <LangSelect />
       </div>
 

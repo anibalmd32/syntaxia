@@ -7,7 +7,7 @@ export const ToonifyLogo = ({ className = "" }: { className?: string }) => {
     <svg
       className={className}
       fill="none"
-      viewBox="0 0 300 80"
+      viewBox="0 0 260 80"
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>Toonify</title>
@@ -39,7 +39,7 @@ export const ToonifyLogo = ({ className = "" }: { className?: string }) => {
         x="85"
         y="52"
       >
-        toon<tspan fill={`url(#${id})`}>ify</tspan>
+        Toon<tspan fill={`url(#${id})`}>ify</tspan>
       </text>
     </svg>
   );

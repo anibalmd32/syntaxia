@@ -28,7 +28,7 @@ export const LangSelect = () => {
         <SiGoogletranslate size={20} />
       </button>
       <ul
-        className="dropdown-content menu bg-base-100 rounded-box z-1 p-2 shadow-sm flex flex-col gap-2"
+        className="dropdown-content menu bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm space-y-2"
         tabIndex={-1}
       >
         {langList.map((lang) => (

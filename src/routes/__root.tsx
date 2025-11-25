@@ -9,8 +9,9 @@ import {
 import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import type { Session, User } from "better-auth/types";
 import { ProgressSubscriber } from "@/components/ProgressSubscriber";
+import { Toast } from "@/components/Toast";
 import type { TRPCRouter } from "@/integrations/trpc/router";
-import i18n from "@/lib/i18n";
+import i18n, { setSSRLanguage } from "@/lib/i18n";
 import { fetchUserSession } from "@/utils/auth-fn";
 import appCss from "../styles.css?url";
 
@@ -46,6 +47,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   }),
   shellComponent: RootDocument,
   beforeLoad: async () => {
+    setSSRLanguage();
     const session = await fetchUserSession();
 
     return {
@@ -64,16 +66,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <main className="min-h-screen w-full bg-base-200 relative selection:bg-primary selection:text-primary-content font-sans text-base-content antialiased">
-          {/* Global Background Decorations */}
-          <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00C6FF]/10 rounded-full blur-[120px] mix-blend-multiply animate-pulse" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#5A4FCF]/10 rounded-full blur-[120px] mix-blend-multiply animate-pulse delay-1000" />
-          </div>
-
           <div className="relative z-10">
             <ProgressProvider color="#18a5f2">
               <ProgressSubscriber>
-                <ClientOnly>{children}</ClientOnly>
+                <ClientOnly>
+                  {children}
+                  <Toast />
+                </ClientOnly>
               </ProgressSubscriber>
             </ProgressProvider>
           </div>
