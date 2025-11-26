@@ -6,7 +6,7 @@ export const Route = createFileRoute("/app/home")({
   head: () => ({
     meta: [
       {
-        title: `${i18n.t("pages.home.tabTitle")} | Toonify`,
+        title: `${i18n.t("pages.home.tabTitle")} | Syntaxia`,
       },
     ],
   }),

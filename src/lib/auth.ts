@@ -27,11 +27,11 @@ export const auth = betterAuth({
       const resend = new Resend(constants.RESEND_API_KEY);
 
       await resend.emails.send({
-        from: "Toonify <delivered@resend.dev>",
+        from: "Syntaxia <delivered@resend.dev>",
         to: [
           "anibalmd32@gmail.com",
         ],
-        subject: "Verify your toonify account",
+        subject: "Verify your Syntaxia account",
         html: await renderTemplate({
           url,
           userEmail: user.email,

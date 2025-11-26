@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { ToonifyLogo } from "@/components/ToonifyLogo";
+import { AppLogo } from "@/components/AppLogo";
 import { SigninForm } from "@/forms/SigninForm";
 import { i18n } from "@/lib/i18n";
 
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/auth/signin")({
     return {
       meta: [
         {
-          title: `${tabTitle} | Toonify`,
+          title: `${tabTitle} | Syntaxia`,
         },
       ],
     };
@@ -25,7 +25,7 @@ function RouteComponent() {
     <>
       <div className="text-center mb-8 space-y-2">
         <div className="flex justify-center mb-6 transform hover:scale-105 transition-transform duration-300">
-          <ToonifyLogo className="h-16 drop-shadow-lg" />
+          <AppLogo className="h-16 drop-shadow-lg" />
         </div>
         <h1 className="text-4xl font-black tracking-tight text-base-content">
           {t("pages.auth.login.title")}

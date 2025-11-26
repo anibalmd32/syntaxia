@@ -3,7 +3,7 @@
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
-  name: "toonify";
+  name: "syntaxia";
   default: true;
   prefersdark: true;
   color-scheme: "dark";

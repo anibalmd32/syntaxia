@@ -35,13 +35,18 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "Toonify",
+        title: "Syntaxia",
       },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "/favicon.svg",
       },
     ],
   }),
@@ -64,7 +69,7 @@ function RootDocument({
   const currentLang = i18n.language;
 
   return (
-    <html data-theme="toonify" lang={currentLang}>
+    <html data-theme="syntaxia" lang={currentLang}>
       <head>
         <HeadContent />
       </head>
