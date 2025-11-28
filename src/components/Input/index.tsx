@@ -11,9 +11,10 @@ export const Input = ({
   options,
   placeholder = "",
 }: InputFieldProps) => {
-  const { errors, inputId, isTextInput, showError, field } = useInput({
-    type,
-  });
+  const { errors, inputId, showError, field } = useInput();
+
+  const isTextInput =
+    type === "email" || type === "password" || type === "text";
 
   return (
     <div className="form-control w-full group">
