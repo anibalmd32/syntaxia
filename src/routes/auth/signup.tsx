@@ -2,14 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { AppLogo } from "@/components/AppLogo";
 import { SignUpForm } from "@/forms/SignUpForm";
-import { i18n } from "@/lib/i18n";
+import { itn } from "@/lib/i18n";
 
 export const Route = createFileRoute("/auth/signup")({
   component: RouteComponent,
   head: () => ({
     meta: [
       {
-        title: `${i18n.t("pages.auth.register.tabTitle")} | Syntaxia`,
+        title: `${itn.t("pages.auth.register.tabTitle")} | Syntaxia`,
       },
     ],
   }),

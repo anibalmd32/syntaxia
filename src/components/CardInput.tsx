@@ -17,6 +17,7 @@ export const CardInput = (props: CardInputProps) => {
       )}
       htmlFor={inputId}
     >
+      <span className="hidden">{props.label}</span>
       <div className="card-body">
         <div className="card-title">
           {props.icon} {props.label}

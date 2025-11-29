@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import * as v from "valibot";
 import { EmailSchema } from "@/definitions/validationSchemas/EmailSchema";
 import { NameSchema } from "@/definitions/validationSchemas/NameSchema";
-import { i18n } from "@/lib/i18n";
+import { itn } from "@/lib/i18n";
 
 const signUpSearchSchema = v.object({
   userName: NameSchema,
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/auth/signup-success")({
   head: () => ({
     meta: [
       {
-        title: `${i18n.t("pages.auth.success.tabTitle")} | Toonify`,
+        title: `${itn.t("pages.auth.success.tabTitle")} | Toonify`,
       },
     ],
   }),

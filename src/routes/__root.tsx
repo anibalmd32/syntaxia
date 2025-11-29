@@ -11,7 +11,7 @@ import type { Session, User } from "better-auth/types";
 import { ProgressSubscriber } from "@/components/ProgressSubscriber";
 import { Toast } from "@/components/Toast";
 import type { TRPCRouter } from "@/integrations/trpc/router";
-import { i18n, setSSRLanguage } from "@/lib/i18n";
+import { itn, setSSRLanguage } from "@/lib/i18n";
 import { fetchUserSession } from "@/utils/auth-fn";
 import appCss from "../styles.css?url";
 
@@ -71,7 +71,7 @@ function RootDocument({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const currentLang = i18n.language;
+  const currentLang = itn.language;
 
   return (
     <html data-theme="syntaxia" lang={currentLang}>

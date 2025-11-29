@@ -52,4 +52,4 @@ export const setSSRLanguage = createIsomorphicFn().server(async () => {
   await i18n.changeLanguage(language || "es");
 });
 
-export { i18n };
+export const itn = i18n;
