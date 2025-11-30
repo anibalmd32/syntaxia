@@ -4,7 +4,6 @@ import { reactStartCookies } from "better-auth/react-start";
 import { Resend } from "resend";
 import { db } from "@/db";
 import { renderTemplate } from "@/emails/VerificationEmail";
-import { constants } from "../../constants";
 
 export const auth = betterAuth({
   user: {
@@ -24,7 +23,7 @@ export const auth = betterAuth({
   }),
   emailVerification: {
     sendVerificationEmail: async ({ user, url }) => {
-      const resend = new Resend(constants.RESEND_API_KEY);
+      const resend = new Resend(process.env.RESEND_API_KEY);
 
       await resend.emails.send({
         from: "Syntaxia <delivered@resend.dev>",

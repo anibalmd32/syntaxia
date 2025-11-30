@@ -16,20 +16,15 @@ RUN bun run build
 # ------------------------------------
 # Stage 2: Runtime                   #
 # ------------------------------------
-FROM oven/bun:1.3.2-slim AS runtime
+FROM oven/bun:1.3.2-slim AS app_runtime
 
 WORKDIR /app
 
-COPY --from=build /app/package.json ./package.json
-COPY --from=build /app/bun.lock ./bun.lock
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/.output ./.output
-COPY --from=build /app/drizzle.config.ts ./drizzle.config.ts
-COPY --from=build /app/constants.ts ./constants.ts
-COPY --from=build /app/drizzle ./drizzle
 
-ENV APP_ENV='prod'
+ENV NODE_ENV=production
 
 EXPOSE 3000
 
-CMD ["bun", "run", "start"]
+CMD ["bun", "run", ".output/server/index.mjs"]

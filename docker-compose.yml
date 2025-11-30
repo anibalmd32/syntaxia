@@ -20,6 +20,25 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   # ------------------------------------
+  # Database Migrator (Servicio Efímero)
+  # ------------------------------------
+  migrator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
+    env_file:
+      - .env
+    command: bun run db:migrate
+    restart: 'no'
+
+  # ------------------------------------
   # App
   # ------------------------------------
   app:
@@ -29,17 +48,13 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      postgres:
-        condition: service_healthy
+      migrator:
+        condition: service_completed_successfully
     environment:
-      DATABASE_URL: ${DB_ENGINE}://${DB_USER}:${DB_PASSWORD}@{DB_HOST}:${DB_PORT}/${DB_NAME}
+      DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
     env_file:
-      - .env.production
-    command: >
-      sh -c "
-        /app/node_modules/.bin/drizzle-kit migrate --config /app/drizzle.config.ts || true
-        bun run start
-      "
+      - .env
+    command: bun run .output/server/index.mjs
 
 # ------------------------------------
 # Volúmenes para persistencia

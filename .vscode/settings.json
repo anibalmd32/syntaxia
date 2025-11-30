@@ -31,5 +31,11 @@
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit"
-  }
+  },
+  "cSpell.words": [
+    "healthcheck",
+    "isready",
+    "postgresql",
+    "Syntaxia"
+  ]
 }
