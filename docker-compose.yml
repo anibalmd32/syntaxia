@@ -78,7 +78,7 @@ services:
     command: bun run .output/server/index.mjs
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.app.rule=Host(`syntaxia.tech`, `www.syntaxia.tech`)"
+      - "traefik.http.routers.app.rule=Host(`syntaxia.tech`) || Host(`www.syntaxia.tech`)"
       - "traefik.http.routers.app.entrypoints=websecure"
       - "traefik.http.routers.app.tls.certresolver=myresolver"
       - "traefik.http.services.app.loadbalancer.server.port=3000"
