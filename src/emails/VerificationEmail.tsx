@@ -6,7 +6,6 @@ import {
   Heading,
   Hr,
   Html,
-  Link,
   Preview,
   Section,
   Tailwind,
@@ -16,14 +15,14 @@ import { render } from "@react-email/render";
 
 interface VerificationEmailProps {
   url: string;
-  userEmail?: string;
+  userEmail: string;
 }
 
 export const VerificationEmail = ({
   url,
-  userEmail = "toonify user",
+  userEmail,
 }: VerificationEmailProps) => {
-  const previewText = `Bienvenido a Toonify. Verifica tu email para comenzar.`;
+  const previewText = `Bienvenido a Syntaxia. Verifica tu email para comenzar.`;
 
   return (
     <Html>
@@ -56,26 +55,23 @@ export const VerificationEmail = ({
               }}
             />
 
-            {/* LOGO HEADER */}
             <Section className="mt-8 mb-8 text-center">
               <Text className="text-4xl font-black tracking-tighter m-0 text-[#5A4FCF]">
                 Syntaxia
               </Text>
             </Section>
 
-            {/* CONTENIDO PRINCIPAL */}
             <Heading className="text-2xl font-bold text-center p-0 my-4 mx-0 text-gray-900">
               Verifica tu correo electrónico
             </Heading>
 
             <Text className="text-base leading-relaxed text-gray-600 text-center mb-8">
               ¡Hola <strong>{userEmail}</strong>! <br />
-              Estamos emocionados de que te unas a Toonify. Para asegurar la
+              Estamos emocionados de que te unas a Syntaxia. Para asegurar la
               seguridad de tu cuenta, por favor verifica tu dirección haciendo
               clic abajo.
             </Text>
 
-            {/* BOTÓN CTA CON GRADIENTE */}
             <Section className="text-center my-8">
               <Button
                 className="rounded-xl text-white text-base font-bold no-underline text-center py-4 px-10 block shadow-xl"
@@ -91,26 +87,14 @@ export const VerificationEmail = ({
               </Button>
             </Section>
 
-            <Text className="text-sm text-gray-400 text-center mt-8 mb-4">
-              O copia y pega este enlace en tu navegador:
-              <br />
-              <Link
-                className="text-[#5A4FCF] underline break-all font-medium"
-                href={url}
-              >
-                {url}
-              </Link>
-            </Text>
-
             <Hr className="border-gray-100 my-8" />
 
-            {/* FOOTER */}
             <Text className="text-xs text-gray-400 text-center leading-relaxed">
               Si no solicitaste esta verificación, puedes ignorar este correo
               con seguridad.
               <br />
               <span className="opacity-50">
-                © {new Date().getFullYear()} Toonify Inc. Todos los derechos
+                © {new Date().getFullYear()} Syntaxia Inc. Todos los derechos
                 reservados.
               </span>
             </Text>

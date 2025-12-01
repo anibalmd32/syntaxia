@@ -33,9 +33,26 @@
     "source.organizeImports.biome": "explicit"
   },
   "cSpell.words": [
+    "bprogress",
+    "certificatesresolvers",
+    "certresolver",
+    "exposedbydefault",
     "healthcheck",
     "isready",
+    "languagedetector",
+    "lefhook",
+    "letsencrypt",
+    "loadbalancer",
+    "midudev",
+    "miweb",
+    "myresolver",
     "postgresql",
-    "Syntaxia"
+    "redirections",
+    "syntaxia",
+    "Syntaxia",
+    "tlschallenge",
+    "traefik",
+    "valipass",
+    "websecure"
   ]
 }
