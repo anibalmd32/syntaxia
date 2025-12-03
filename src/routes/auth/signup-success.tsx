@@ -17,7 +17,7 @@ export const Route = createFileRoute("/auth/signup-success")({
   head: () => ({
     meta: [
       {
-        title: `${itn.t("pages.auth.success.tabTitle")} | Toonify`,
+        title: `${itn.t("pages.auth.success.tabTitle")} | Syntaxia`,
       },
     ],
   }),

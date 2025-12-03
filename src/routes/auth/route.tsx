@@ -24,12 +24,6 @@ function RouteComponent() {
       <div className="w-full max-w-md z-10">
         <Outlet />
       </div>
-
-      {/* <div className="absolute bottom-4 text-center w-full z-10">
-        <p className="text-xs text-base-content/40">
-          © {new Date().getFullYear()} Toonify Inc.
-        </p>
-      </div> */}
     </div>
   );
 }

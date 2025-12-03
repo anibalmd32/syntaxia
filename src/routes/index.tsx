@@ -1,5 +1,6 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
-import { Bot, ChevronRight, Database, Sparkles } from "lucide-react";
+import { ChevronRight, LayoutTemplate, Rocket, Workflow } from "lucide-react";
+import { useId } from "react";
 import { AppLogo } from "@/components/AppLogo";
 import { BgAnimatedGradient } from "@/components/BgAnimatedGradient";
 import { BRAND_BUTTON_CLASSES } from "@/definitions/stylesConstants/brandStyles";
@@ -18,22 +19,23 @@ export const Route = createFileRoute("/")({
 
 function LandingPage() {
   const isScrolled = useScrollDetection(50);
+  const featuresSectionId = useId();
 
   const features = [
     {
-      title: "Agente IA MVP",
-      desc: "Desarrolla productos mínimos viables de negocio en tiempo récord con nuestro agente inteligente.",
-      icon: <Bot className="w-8 h-8 text-primary" />,
+      title: "No empieces desde cero",
+      desc: "No pierdas meses construyendo lo básico. Syntaxia te entrega una base profesional lista con todo lo que tu negocio necesita para facturar desde el día uno.",
+      icon: <LayoutTemplate className="w-8 h-8 text-primary" />,
     },
     {
-      title: "Optimización de Prompts",
-      desc: "Generación y refinamiento avanzado de prompts para obtener respuestas precisas y de alta calidad.",
-      icon: <Sparkles className="w-8 h-8 text-secondary" />,
+      title: "Tu CTO Virtual",
+      desc: "Olvídate de contratar expertos para configurar servidores o bases de datos. Nuestro agente conecta todas las piezas técnicas por ti automáticamente.",
+      icon: <Workflow className="w-8 h-8 text-secondary" />,
     },
     {
-      title: "Protocolo MCP",
-      desc: "Creación e integración de Model Context Protocols para conectar la IA con tu negocio.",
-      icon: <Database className="w-8 h-8 text-accent" />,
+      title: "Tu Proyecto es Tuyo",
+      desc: "Sin ataduras. A diferencia de otras plataformas, aquí el código es tuyo. Puedes descargarlo, llevarlo a tu ordenador y crecer sin límites.",
+      icon: <Rocket className="w-8 h-8 text-accent" />,
     },
   ];
 
@@ -89,21 +91,33 @@ function LandingPage() {
               <AppLogo className="h-24 md:h-32 drop-shadow-2xl" />
             </div>
 
+            <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight">
+              La forma más inteligente <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#00C6FF] to-[#5A4FCF]">
+                de crear software.
+              </span>
+            </h1>
             <p className="text-xl md:text-2xl text-base-content/70 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up delay-100">
-              ¡Bienvenido a Syntaxia! El punto de partida para tus negocios.
-              <br className="hidden md:block" />
-              <span className="text-primary font-semibold">
-                Transforma tus ideas en realidad.
+              Transforma tu idea en un
+              <span className="font-semibold text-base-content">
+                {" "}
+                Negocio Real en Minutos
               </span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-200">
               <Link
-                className={`btn btn-lg rounded-2xl ${BRAND_BUTTON_CLASSES}`}
-                to="/auth/signin"
+                className={`btn btn-lg rounded-2xl ${BRAND_BUTTON_CLASSES} text-lg px-8`}
+                to="/auth/signup"
               >
-                Comenzar Ahora <ChevronRight className="w-5 h-5" />
+                Crear mi Aplicación Gratis <ChevronRight className="w-6 h-6" />
               </Link>
+              <a
+                className="btn btn-lg btn-ghost rounded-2xl border-2 border-base-content/10 hover:border-base-content/30 text-base-content/70"
+                href={`#${featuresSectionId}`}
+              >
+                ¿Cómo funciona?
+              </a>
             </div>
           </div>
         </div>
@@ -119,18 +133,19 @@ function LandingPage() {
       </section>
 
       {/* --- Features Section --- */}
-      <section className="py-24 bg-base-200/50 relative">
+      <section className="py-24 bg-base-200/50 relative" id={featuresSectionId}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-on-scroll">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              ¡Descubre el poder de Syntaxia!
+              Tu ventaja competitiva
             </h2>
-            <p className="text-base-content/60 text-lg">
-              Todo lo que necesitas para potenciar tu negocio con IA.
+            <p className="text-base-content/60 text-lg max-w-2xl mx-auto">
+              Syntaxia combina la velocidad de la IA con la seguridad que tu
+              empresa necesita para escalar.
             </p>
           </div>
 
-          <div className={`flex justify-between gap-6 flex-col md:flex-row`}>
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8`}>
             {features.map((feature, idx) => (
               <div
                 className="card bg-base-100 border border-base-200 shadow-xl hover:shadow-2xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 group"
@@ -140,13 +155,15 @@ function LandingPage() {
                 }}
               >
                 <div className="card-body">
-                  <div className="p-3 bg-base-200 w-fit rounded-xl mb-4 group-hover:bg-primary/10 transition-colors">
+                  <div className="p-4 bg-base-200 w-fit rounded-2xl mb-6 group-hover:bg-primary/10 transition-colors">
                     {feature.icon}
                   </div>
-                  <h3 className="card-title text-xl font-bold mb-2">
+                  <h3 className="card-title text-2xl font-bold mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-base-content/70">{feature.desc}</p>
+                  <p className="text-base-content/70 leading-relaxed text-lg">
+                    {feature.desc}
+                  </p>
                 </div>
               </div>
             ))}
