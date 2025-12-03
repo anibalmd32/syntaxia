@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
-@plugin "@adam.plesnik/tailwindcss-scroll-driven-animations";
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
