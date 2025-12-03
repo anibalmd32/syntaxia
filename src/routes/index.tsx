@@ -139,7 +139,7 @@ function LandingPage() {
           </div>
 
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${features.length} gap-6`}
+            className={`flex justify-between gap-6 flex-col md:flex-row`}
           >
             {features.map((feature, idx) => (
               <div
