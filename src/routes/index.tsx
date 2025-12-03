@@ -1,9 +1,9 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { Bot, ChevronRight, Database, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
 import { AppLogo } from "@/components/AppLogo";
 import { BgAnimatedGradient } from "@/components/BgAnimatedGradient";
 import { BRAND_BUTTON_CLASSES } from "@/definitions/stylesConstants/brandStyles";
+import { useScrollDetection } from "@/hooks/useScrollDetection";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -17,15 +17,7 @@ export const Route = createFileRoute("/")({
 });
 
 function LandingPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const isScrolled = useScrollDetection(50);
 
   const features = [
     {
@@ -138,9 +130,7 @@ function LandingPage() {
             </p>
           </div>
 
-          <div
-            className={`flex justify-between gap-6 flex-col md:flex-row`}
-          >
+          <div className={`flex justify-between gap-6 flex-col md:flex-row`}>
             {features.map((feature, idx) => (
               <div
                 className="card bg-base-100 border border-base-200 shadow-xl hover:shadow-2xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 group"
