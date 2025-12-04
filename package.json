@@ -73,7 +73,7 @@
     "@vitejs/plugin-react": "^5.0.4",
     "daisyui": "^5.5.5",
     "jsdom": "^27.0.0",
-    "lefhook": "^1.1.1",
+    "lefthook": "^2.0.7",
     "tsx": "^4.0.0",
     "typescript": "^5.7.2",
     "vite": "^7.1.7",
