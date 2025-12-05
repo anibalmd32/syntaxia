@@ -16,7 +16,7 @@ import { Route as AuthSignupSuccessRouteImport } from './routes/auth/signup-succ
 import { Route as AuthSignupRouteImport } from './routes/auth/signup'
 import { Route as AuthSigninRouteImport } from './routes/auth/signin'
 import { Route as AppHomeRouteImport } from './routes/app/home'
-import { Route as ApiTrpcSplatRouteImport } from './routes/api.trpc.$'
+import { Route as ApiTrpcSplatRouteImport } from './routes/api/trpc/$'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const AuthRouteRoute = AuthRouteRouteImport.update({

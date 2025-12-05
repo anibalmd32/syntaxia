@@ -55,5 +55,9 @@
     "traefik",
     "valipass",
     "websecure"
-  ]
+  ],
+  "sonarlint.connectedMode.project": {
+    "connectionId": "anibalmd32",
+    "projectKey": "anibalmd32_toonify"
+  }
 }
