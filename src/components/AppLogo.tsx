@@ -14,7 +14,6 @@ export const AppLogo = ({ className = "", ...props }: AppLogoProps) => {
       fill="none"
       height="100%"
       viewBox="0 0 245 70"
-      width="auto"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
