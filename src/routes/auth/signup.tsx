@@ -22,7 +22,9 @@ function RouteComponent() {
     <>
       <div className="text-center mb-8 space-y-2">
         <div className="flex justify-center mb-6 transform hover:scale-105 transition-transform duration-300">
-          <AppLogo className="h-16 drop-shadow-lg" />
+          <Link to="/">
+            <AppLogo className="h-10 md:h-16 drop-shadow-lg" />
+          </Link>
         </div>
         <h1 className="text-4xl font-black tracking-tight text-base-content">
           {t("pages.auth.register.title")}

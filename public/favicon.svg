@@ -1,31 +1,33 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="64" height="64" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="brand-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="syntaxiaGradient" x1="0%" x2="100%" y1="0%" y2="100%">
       <stop offset="0%" stop-color="#00C6FF" />
       <stop offset="100%" stop-color="#5A4FCF" />
     </linearGradient>
   </defs>
-  <g transform="translate(2, 15)">
-    <path
-      d="M15 10 L5 20 L15 30"
-      stroke="url(#brand-gradient)"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M45 10 L55 20 L45 30"
-      stroke="url(#brand-gradient)"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M25 45 L35 5"
-      stroke="url(#brand-gradient)"
+
+  <g transform="translate(0, 13)">
+    <rect x="8" y="4" width="60" height="48" rx="8" fill="url(#syntaxiaGradient)" opacity="0.12" />
+    
+    <rect
+      x="12"
+      y="8"
+      width="52"
+      height="40"
+      rx="6"
+      fill="none"
+      stroke="url(#syntaxiaGradient)"
       stroke-width="4"
       stroke-linecap="round"
-      stroke-opacity="0.5"
+      stroke-linejoin="round"
     />
+
+    <circle cx="29" cy="28" r="6" fill="#ffffff" opacity="0.92" />
+    <circle cx="47" cy="28" r="6" fill="#ffffff" opacity="0.92" />
+    <circle cx="29" cy="28" r="3.5" fill="url(#syntaxiaGradient)" />
+    <circle cx="47" cy="28" r="3.5" fill="url(#syntaxiaGradient)" />
+
+    <line x1="38" y1="6" x2="38" y2="0" stroke="url(#syntaxiaGradient)" stroke-width="3" stroke-linecap="round" />
+    <circle cx="38" cy="0" r="2" fill="url(#syntaxiaGradient)" />
   </g>
 </svg>

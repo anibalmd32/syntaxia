@@ -15,13 +15,13 @@ export const Route = createFileRoute("/auth")({
 
 function RouteComponent() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4 relative">
+    <div className="flex justify-center flex-col items-center">
       <BgAnimatedGradient />
       <div className="absolute top-4 left-4 z-50">
         <LangSelect />
       </div>
 
-      <div className="w-full max-w-md z-10">
+      <div className="w-full max-w-md z-10 animate-fade-in">
         <Outlet />
       </div>
     </div>

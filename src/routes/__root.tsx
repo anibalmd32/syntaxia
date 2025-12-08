@@ -8,6 +8,7 @@ import {
 } from "@tanstack/react-router";
 import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import type { Session, User } from "better-auth/types";
+import { BgAnimatedGradient } from "@/components/BgAnimatedGradient";
 import { ProgressSubscriber } from "@/components/ProgressSubscriber";
 import { Toast } from "@/components/Toast";
 import type { TRPCRouter } from "@/integrations/trpc/router";
@@ -78,18 +79,22 @@ function RootDocument({
       <head>
         <HeadContent />
       </head>
-      <body>
-        <main className="min-h-screen w-full bg-base-200 relative selection:bg-primary selection:text-primary-content font-sans text-base-content antialiased">
-          <div className="relative z-10">
-            <ProgressProvider color="#18a5f2">
-              <ProgressSubscriber>
-                <ClientOnly>
-                  {children}
-                  <Toast />
-                </ClientOnly>
-              </ProgressSubscriber>
-            </ProgressProvider>
-          </div>
+      <body className="relative min-h-screen p-4 md:py-6">
+        <BgAnimatedGradient />
+        <main className="container w-full mx-auto">
+          <ProgressProvider
+            color="#18a5f2"
+            options={{
+              showSpinner: false,
+            }}
+          >
+            <ProgressSubscriber>
+              <ClientOnly>
+                {children}
+                <Toast />
+              </ClientOnly>
+            </ProgressSubscriber>
+          </ProgressProvider>
         </main>
         <Scripts />
       </body>
