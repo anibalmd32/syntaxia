@@ -13,7 +13,6 @@ export const AppLogo = ({ className = "", ...props }: AppLogoProps) => {
       className={className}
       fill="none"
       height="100%"
-      role="img"
       viewBox="0 0 245 70"
       width="auto"
       xmlns="http://www.w3.org/2000/svg"

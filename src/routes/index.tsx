@@ -2,6 +2,7 @@ import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { Blocks, ChevronRight, Sparkles, Terminal } from "lucide-react";
 import { AppLogo } from "@/components/AppLogo";
 import { BRAND_BUTTON_CLASSES } from "@/definitions/stylesConstants/brandStyles";
+import { generateUniqueKey } from "@/utils/generateUniqueKey";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -93,7 +94,7 @@ function LandingPage() {
           {features.map((feature, index) => (
             <article
               className="group p-6 bg-accent/10 rounded-3xl border border-base-content/5 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
-              key={index}
+              key={generateUniqueKey(index)}
             >
               <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
